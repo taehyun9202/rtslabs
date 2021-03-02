@@ -1,5 +1,7 @@
 import * as actions from '../actions/types'
 
+
+// inital state of redux
 const initialState = {
     result: [],
     option: null,

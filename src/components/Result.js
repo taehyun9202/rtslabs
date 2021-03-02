@@ -4,13 +4,16 @@ import { connect } from 'react-redux'
 import { getFirstPage } from '../actions/apiActions'
 function Result(props) {
     const [ firstPage, setFirstPage ] = useState(false)
+
     Result.propTypes = {
         currentAPI: PropTypes.object
     }
-    console.log(props.currentAPI)
-    console.log(props.currentAPI.option)
-    console.log(firstPage)
+    // console.log(props.currentAPI)
+    // console.log(props.currentAPI.option)
+    // console.log(firstPage)
 
+
+    // fetch all stories from the firstpage when window loads
     useEffect(() => {
         props.getFirstPage()
         setFirstPage(true)

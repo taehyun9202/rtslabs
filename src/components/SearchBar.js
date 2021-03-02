@@ -9,6 +9,8 @@ function SearchBar(props) {
     SearchBar.propTypes = {
     }
 
+
+    // takes input and option and 
     const onSubmitHandler = e => {
         e.preventDefault()
         console.log(input, option)

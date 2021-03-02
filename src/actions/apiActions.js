@@ -1,6 +1,8 @@
 import axios from 'axios'
 import * as actions from './types'
 
+
+// fetch first page when there is no input
 export const getFirstPage = () => dispatch => {
     dispatch(setApiLoading())
     axios.get('http://hn.algolia.com/api/v1/search?tags=front_page')
@@ -13,8 +15,11 @@ export const getFirstPage = () => dispatch => {
         )
 }
 
+
+// if there is input and option entered by user , fetch followings
 export const getBySearchOption = (option, input) => dispatch => {
     dispatch(setApiLoading())
+    // create new url that takes option and input
     var url = ''
     if (option === "story") {
         url = `http://hn.algolia.com/api/v1/search?query=${input}&tags=story`
@@ -32,6 +37,7 @@ export const getBySearchOption = (option, input) => dispatch => {
         .then(res => dispatch({
             type: actions.GET_API,
             payload: res.data,
+            // save the user's search term and option in the redux state
             option: option,
             input: input
         }))
