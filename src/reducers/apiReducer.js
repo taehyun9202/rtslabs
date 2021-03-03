@@ -16,6 +16,8 @@ export default function(state = initialState, action ) {
             return {
                 ...state,
                 result: action.payload,
+                option: action.option,
+                input: action.input,
                 loading: false
             }
         case actions.API_LOADING:
